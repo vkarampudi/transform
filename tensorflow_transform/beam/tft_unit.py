@@ -124,8 +124,12 @@ class TransformTestCase(test_case.TransformTestCase):
         if namespaces_list:
             metrics_filter = metrics_filter.with_namespaces(namespaces_list)
         metric = metrics.query(metrics_filter)["counters"]
-        committed = sum([(r.committed if r.committed is not None else 0) for r in metric])
-        attempted = sum([(r.attempted if r.attempted is not None else 0) for r in metric])
+        committed = sum(
+            [(r.committed if r.committed is not None else 0) for r in metric]
+        )
+        attempted = sum(
+            [(r.attempted if r.attempted is not None else 0) for r in metric]
+        )
         if committed != attempted:
             logging.warning(
                 "Attempted counter %s from namespace %s: committed (%d) != attempted (%d). Ignoring assertion for Beam 2.72.0 compat.",

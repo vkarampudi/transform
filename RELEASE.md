@@ -14,6 +14,8 @@
 
 ## Breaking Changes
 
+*   Dropped support for Python 3.9.
+
 ## Deprecations
 
 # Version 1.17.0
